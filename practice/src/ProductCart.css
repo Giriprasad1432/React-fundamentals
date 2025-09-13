@@ -1,0 +1,15 @@
+.box{
+  margin-right: 50px;
+  border: 3px solid black;
+  text-align: center;
+  padding: 20px;
+}
+.price{
+    color: blue;
+}
+.p1{
+    color: green;
+}
+.p2{
+    color: red;
+}
