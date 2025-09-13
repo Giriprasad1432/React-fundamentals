@@ -18,5 +18,9 @@
 }
 .box2{
    display: flex;
-   justify-content: center;
+   gap: 70px;
+}
+.blog{
+    padding-right: 50px;
+    border: 2px solid black;
 }

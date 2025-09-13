@@ -8,8 +8,8 @@ function ProductCart({product_name, price, isavailable}){
          <p class="price">price : {price} </p>
 
           <p class="stock">
-              {isavailable===true ? <p class="p1">drinks are available</p>:
-              <p class="p2">drinks are not available</p>}</p>
+              {isavailable ? <p class="p1">available</p>:
+              <p class="p2"> not available</p>}</p>
         </div>
         </> 
 
