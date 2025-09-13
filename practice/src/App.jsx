@@ -1,67 +1,52 @@
-import Profile from "./Profile.jsx"
-import "./ProductCart.css"
-import "./App.css"
-import BlogPost from "./BlogPost"
-import Giri from "./Giri.jsx"
-import ProductCart from "./ProductCart.jsx"
+import { useState } from "react"
 function App() {
-  const Products = [{
-    product_name: "drinks",
-    price: 40,
-    isavailable:true
-  },
-  {
-    product_name: "books",
-    price: 9999,
-    isavailable:false
-  },
-  {
-    product_name: "pens",
-    price: 753,
-    isavailable:true
+  const [formdata, setFormdata] = useState({email:"",pass:""});
+  const [count, setCount] = useState(0);
+  const handleClick = (name) => {
+    console.log("you clicked the button");
+    alert("you clicked the button " + name);
   }
-  ]
-  const prem = {
-    name: "PREM SAGAR",
-    course: "B.tech(CSE)",
-    blood_group: "o -VE",
-    roll_no: "24VV1A0518",
-    dob: "18/17/2028"
+  const handleChange = (event) => {
+    setFormdata({
+      ...formdata,[event.target.name]:event.target.value
+    }
+  )
+}
+
+  const handleEmail = (event) => {
+    setFormdata(event.target.value)
   }
 
-  const Post=[
-    { id:1,
-      author:"Prem sagar",
-      title:"the power of juwa",
-      desc:"An adventurous Story written by prem"
-    },
-    { id: 2,
-      author:"Prem sagar1",
-      title:"the Adventures of tom sawyer",
-      desc:"An adventurous Story written by prem"
-    },
-    { id: 3,
-      author:"leela",
-      title:"the power of sleep",
-      desc:"An adventurous Story written by leela avinash"
-    }]
+  
+
+  const handlePassword = (event) => {
+    setFormdata(event.target.value)
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("you Submitted the button");
+    alert(` ${formdata.email} ${formdata.pass} is changed `);
+  }
+  
+
+  const handleIncrement = () => {
+    setCount((Count) => Count + 1);
+    console.log(count)
+  }
+
 
   return (
-    <div class="box2">
-      {/* <Profile/>
-      <div class="box1">
-      <ProductCart {...object1}/>
-      <ProductCart {...object2}/>
-      </div> */}
-      {/* <Giri {...prem}/> */}
-      {/* { Products.map((products)=>(<ProductCart product_name={products.product_name} price={products.price}
-      isavailable={products.isavailable}/>
-      ))
-      } */}
-       { Post.map((books)=>(<BlogPost key={books.id} author={books.author} 
-       title={books.title}
-      desc={books.desc}/>))}
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input type="email" name="email" placeholder="Enter email" onChange={handleChange}></input>
+        <input type="password" name="pass" placeholder="Enter password" onChange={handleChange} ></input>
+        <button type="submit" >Submit</button>
+      </form>
+      {/* <p>{count}</p>
+  <button type="submit" onClick={handleIncrement}>Submit</button> */}
     </div>
+
   )
 }
 
